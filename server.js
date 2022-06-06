@@ -8,7 +8,7 @@ const PORT = 3000
 const app = express()
 
 // How we are going to connect to our database (using existing name and pass info)
-const connectionString = 'mongodb+srv://yoda:pass123@cluster0.uvnm3pc.mongodb.net/?retryWrites=true&w=majority'
+const connectionString = '' // insert the code from MongoDB Atlas here
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
     .then(client => {
