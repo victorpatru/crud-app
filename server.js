@@ -2,6 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const PORT = 3000
 
 // Initialize our server
 const app = express()
@@ -25,9 +26,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.use(express.static('public'))
         app.use(bodyParser.urlencoded({ extended: true }))
 
-        // Setting our localhost:3000
-        app.listen(3000, () => {
-            console.log('listening on 3000')
+        // Setting up the listening port
+        app.listen(process.env.PORT || PORT , () => {
+            console.log(`Listening on port ${PORT}!`)
         })
         // Setting up our landing page
         app.get('/', (req, res) => {
